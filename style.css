@@ -15,16 +15,18 @@
 
 html {
   font-size: 62.5%;
-  position: relative;
-  min-height: 100%;
 }
 
 body {
-  max-height: 100%;
   font-size: 1.6rem;
   font-family: "Signika", "Roboto", sans-serif;
   background-color: var(--page-background-color);
-  margin-bottom: 100px;
+}
+
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -122,15 +124,15 @@ body {
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   font-size: 2rem;
   gap: 0.5rem;
+  margin-top: auto;
   margin-bottom: 1rem;
+  height: 8rem;
 }
 
 .logo-image {
