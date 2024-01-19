@@ -290,7 +290,6 @@ body {
   background-color: #cfcfcf;
 }
 
-
 /* Added media queries */
 @media only screen and (max-width: 1110px) {
   .header {
@@ -314,19 +313,16 @@ body {
   .grid-card {
     width: 50%;
   }
-  .add-books{
-    text-align: start;
-  }
-  .modal{
+  .modal {
     gap: 2rem;
   }
 }
 
-@media only screen and (max-width: 400px){
-  .grid-cards{
+@media only screen and (max-width: 400px) {
+  .grid-cards {
     margin-right: 15rem;
   }
-  .modal{
+  .modal {
     gap: 2.5rem;
   }
 }

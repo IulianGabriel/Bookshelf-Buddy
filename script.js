@@ -39,16 +39,16 @@ document.addEventListener("keydown", (event) => {
 });
 
 function saveLibraryToLocalStorage() {
-    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-  }
+  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+}
 
-  function loadLibraryFromLocalStorage() {
-    const storedLibrary = localStorage.getItem("myLibrary");
-    if (storedLibrary) {
-      myLibrary.push(...JSON.parse(storedLibrary));
-      myLibrary.forEach((book) => createBookCard(book));
-    }
+function loadLibraryFromLocalStorage() {
+  const storedLibrary = localStorage.getItem("myLibrary");
+  if (storedLibrary) {
+    myLibrary.push(...JSON.parse(storedLibrary));
+    myLibrary.forEach((book) => createBookCard(book));
   }
+}
 
 function clearErrorMessage() {
   errorMessage.textContent = "";
