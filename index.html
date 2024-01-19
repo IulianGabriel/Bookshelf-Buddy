@@ -28,6 +28,18 @@
           <img class="logo-image" src="GithubLogo.png" alt="github Icon" />
         </a>
       </footer>
+      <div class="modal hidden">
+        <p>Add new book</p>
+        <input class="book-title" type="text" placeholder="Title" required >
+        <input class="book-author" type="text" placeholder="Author" required >
+        <input class="book-pages" type="number" placeholder="Pages" required max="10000">
+        <div class="is-read">
+          <label for="is-read">Have you read it?</label>
+          <input class="isRead-checkbox" type="checkbox">
+        </div>
+        <button class="submit-button">Submit</button>
+      </div>
+      <div class="overlay hidden"></div>
     </div>
   </body>
 </html>
