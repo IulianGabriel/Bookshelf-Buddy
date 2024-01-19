@@ -127,7 +127,8 @@ body {
   height: 5rem;
   border-radius: 1rem;
   border: none;
-  background-color: rgb(169, 177, 156);
+  font-weight: bold;
+  font-size: 1.4rem;
 }
 
 /* Footer styling */
@@ -269,4 +270,12 @@ body {
   color: red;
   font-size: 1.4rem;
   display: none;
+}
+
+.green-btn{
+  background-color: rgb(150, 255, 150);
+}
+
+.red-btn{
+  background-color: rgb(255, 150, 150);
 }

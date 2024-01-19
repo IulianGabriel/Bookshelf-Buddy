@@ -30,13 +30,14 @@
       </footer>
       <div class="modal">
         <p class="instructions">Add new book</p>
-        <input class="book-title" type="text" placeholder="Title" required />
         <p class="error-message">This book already exists in your library</p>
+        <input class="book-title" type="text" placeholder="Title" required />
         <input class="book-author" type="text" placeholder="Author" required />
         <input
           class="book-pages"
           type="number"
           placeholder="Pages"
+          pattern="[0-9]+"
           max="10000"
           required
         />

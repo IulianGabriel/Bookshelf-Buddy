@@ -1,25 +1,131 @@
 // Declare Variables
+const myLibrary = [];
+
 const addBooksButton = document.querySelector(".add-books");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
+const gridCards = document.querySelector(".grid-cards");
+const submitButton = document.querySelector(".submit-button");
+const title = document.querySelector(".book-title");
+const author = document.querySelector(".book-author");
+const pages = document.querySelector(".book-pages");
+const isRead = document.querySelector(".isRead-checkbox");
+const errorMessage = document.querySelector(".error-message");
+
+class Book {
+  constructor(
+    title = "Unknown",
+    author = "Unknown",
+    pages = "0",
+    isRead = false
+  ) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
+  }
+}
 
 // Add event listeners
-addBooksButton.addEventListener("click", addBooks);
-overlay.addEventListener("click", removeOverlay); // Remove modal and overlay by clicking on the overlay
+addBooksButton.addEventListener("click", openModals);
+overlay.addEventListener("click", removeModals); // Remove modal and overlay by clicking on the overlay
+submitButton.addEventListener("click", addBooksToLibrary);
 
 // Remove modal and overlay by pressing "Escape"
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
-    removeOverlay();
+    removeModals();
   }
 });
 
-function addBooks() {
+function clearErrorMessage() {
+  errorMessage.textContent = "";
+  errorMessage.style.display = "none";
+}
+
+function openModals() {
+  clearErrorMessage();
   overlay.classList.add("active");
   modal.classList.add("active");
 }
 
-function removeOverlay() {
+function removeModals() {
+  clearErrorMessage();
   overlay.classList.remove("active");
   modal.classList.remove("active");
+  title.value = "";
+  author.value = "";
+  pages.value = "";
+  isRead.checked = false;
+}
+
+// Create book card
+function createBookCard(book) {
+  const bookCard = document.createElement("div");
+  const title = document.createElement("p");
+  const author = document.createElement("p");
+  const pages = document.createElement("p");
+  const readBookBtn = document.createElement("button");
+  const removeCardBtn = document.createElement("button");
+
+  bookCard.classList.add("grid-card");
+  readBookBtn.classList.add("read-btn");
+  removeCardBtn.classList.add("remove-btn");
+  //   readBookBtn.onclick = toggleRead;
+  //   removeCardBtn.onclick = removeBook;
+
+  title.textContent = `${book.title}`;
+  author.textContent = `${book.author}`;
+  pages.textContent = `${book.pages} pages`;
+  removeCardBtn.textContent = "Remove";
+
+  if (book.isRead) {
+    readBookBtn.textContent = "Read";
+    readBookBtn.classList.add("green-btn");
+  } else {
+    readBookBtn.textContent = "Not Read";
+    readBookBtn.classList.add("red-btn");
+  }
+
+  bookCard.appendChild(title);
+  bookCard.appendChild(author);
+  bookCard.appendChild(pages);
+  bookCard.appendChild(readBookBtn);
+  bookCard.appendChild(removeCardBtn);
+  gridCards.appendChild(bookCard);
+}
+
+// Get value from inputs
+function getInputsValue() {
+  const titleValue = title.value;
+  const authorValue = author.value;
+  const pagesValue = pages.value;
+  const checkBoxValue = isRead.checked;
+  return new Book(titleValue, authorValue, pagesValue, checkBoxValue);
+}
+
+function addBooksToLibrary(e) {
+  e.preventDefault();
+  const newBook = getInputsValue();
+
+  if (!newBook.title || !newBook.author || !newBook.pages) {
+    errorMessage.textContent = "Please fill in all required fields.";
+    errorMessage.style.display = "block";
+    return;
+  }
+
+  // Check if a book with the same title already exists
+  const isDuplicateTitle = myLibrary.some(
+    (book) => book.title === newBook.title
+  );
+
+  if (!isDuplicateTitle) {
+    myLibrary.push(newBook);
+    createBookCard(newBook);
+    removeModals();
+  } else {
+    errorMessage.textContent = "This book already exists in your library";
+    errorMessage.style.display = "block";
+  }
+  console.log(myLibrary);
 }
