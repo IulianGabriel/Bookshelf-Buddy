@@ -277,9 +277,17 @@ body {
   cursor: pointer;
 }
 
+.green-btn:hover {
+  background-color: rgb(125, 210, 125);
+}
+
 .red-btn {
   background-color: rgb(255, 150, 150);
   cursor: pointer;
+}
+
+.red-btn:hover {
+  background-color: rgb(230, 125, 125);
 }
 
 .remove-btn {
