@@ -289,3 +289,44 @@ body {
 .remove-btn:hover {
   background-color: #cfcfcf;
 }
+
+
+/* Added media queries */
+@media only screen and (max-width: 1110px) {
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .log-in {
+    margin-right: 5rem;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .main-div {
+    display: flex;
+    flex-direction: flex-start;
+  }
+  .grid-cards {
+    margin-right: 10rem;
+  }
+  .grid-card {
+    width: 50%;
+  }
+  .add-books{
+    text-align: start;
+  }
+  .modal{
+    gap: 2rem;
+  }
+}
+
+@media only screen and (max-width: 400px){
+  .grid-cards{
+    margin-right: 15rem;
+  }
+  .modal{
+    gap: 2.5rem;
+  }
+}
