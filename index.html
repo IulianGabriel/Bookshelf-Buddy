@@ -29,15 +29,16 @@
         </a>
       </footer>
       <div class="modal">
-        <p>Add new book</p>
+        <p class="instructions">Add new book</p>
         <input class="book-title" type="text" placeholder="Title" required />
+        <p class="error-message">This book already exists in your library</p>
         <input class="book-author" type="text" placeholder="Author" required />
         <input
           class="book-pages"
           type="number"
           placeholder="Pages"
-          required
           max="10000"
+          required
         />
         <div class="is-read">
           <label for="is-read">Have you read it?</label>
