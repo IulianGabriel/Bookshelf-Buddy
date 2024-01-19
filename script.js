@@ -71,21 +71,18 @@ function createBookCard(book) {
   bookCard.classList.add("grid-card");
   readBookBtn.classList.add("read-btn");
   removeCardBtn.classList.add("remove-btn");
-  //   readBookBtn.onclick = toggleRead;
-  //   removeCardBtn.onclick = removeBook;
+
+  readBookBtn.textContent = book.isRead ? "Read" : "Not Read";
+  readBookBtn.classList.add(book.isRead ? "green-btn" : "red-btn");
+  readBookBtn.onclick = () => toggleRead(book, readBookBtn);
+
+  removeCardBtn.textContent = "Remove";
+  removeCardBtn.onclick = () => removeBook(bookCard, book);
 
   title.textContent = `${book.title}`;
   author.textContent = `${book.author}`;
   pages.textContent = `${book.pages} pages`;
   removeCardBtn.textContent = "Remove";
-
-  if (book.isRead) {
-    readBookBtn.textContent = "Read";
-    readBookBtn.classList.add("green-btn");
-  } else {
-    readBookBtn.textContent = "Not Read";
-    readBookBtn.classList.add("red-btn");
-  }
 
   bookCard.appendChild(title);
   bookCard.appendChild(author);
@@ -93,6 +90,21 @@ function createBookCard(book) {
   bookCard.appendChild(readBookBtn);
   bookCard.appendChild(removeCardBtn);
   gridCards.appendChild(bookCard);
+}
+
+function removeBook(card, book) {
+  const index = myLibrary.indexOf(book);
+  if (index >= 0) {
+    myLibrary.splice(index, 1);
+    gridCards.removeChild(card);
+  }
+}
+
+function toggleRead(book, button) {
+  book.isRead = !book.isRead;
+  button.textContent = book.isRead ? "Read" : "Not Read";
+  button.classList.remove("green-btn", "red-btn");
+  button.classList.add(book.isRead ? "green-btn" : "red-btn");
 }
 
 // Get value from inputs
@@ -127,5 +139,4 @@ function addBooksToLibrary(e) {
     errorMessage.textContent = "This book already exists in your library";
     errorMessage.style.display = "block";
   }
-  console.log(myLibrary);
 }

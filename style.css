@@ -158,7 +158,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.25);
+  transform: translate(-50%, -50%) scale(0);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -245,6 +245,7 @@ body {
   font-family: inherit;
   font-weight: bold;
   letter-spacing: 0.1rem;
+  cursor: pointer;
 }
 
 .submit-button:hover {
@@ -272,10 +273,20 @@ body {
   display: none;
 }
 
-.green-btn{
+.green-btn {
   background-color: rgb(150, 255, 150);
+  cursor: pointer;
 }
 
-.red-btn{
+.red-btn {
   background-color: rgb(255, 150, 150);
+  cursor: pointer;
+}
+
+.remove-btn {
+  background-color: #e4e4e4;
+  cursor: pointer;
+}
+.remove-btn:hover {
+  background-color: #cfcfcf;
 }
