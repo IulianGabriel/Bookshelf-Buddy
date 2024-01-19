@@ -1,3 +1,4 @@
+/* Font imports and root-level variables */
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Signika&display=swap");
 
@@ -8,6 +9,7 @@
   --hover-background-color: #e49d55;
 }
 
+/* Clearing default styles and setting box model */
 * {
   padding: 0;
   margin: 0;
@@ -30,6 +32,7 @@ body {
   flex-direction: column;
 }
 
+/* Header styling */
 .header {
   position: sticky;
   top: 0;
@@ -64,6 +67,14 @@ body {
   cursor: pointer;
 }
 
+/* Main-div styling */
+.main-div {
+  margin-top: 4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .add-books {
   height: 5rem;
   width: 15rem;
@@ -82,14 +93,7 @@ body {
   transition: 0.5s all;
 }
 
-.main-div {
-  margin-top: 4rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
+/* Grid layout for cards */
 .grid-cards {
   max-width: 100%;
   display: grid;
@@ -98,6 +102,7 @@ body {
   grid-gap: 3rem;
 }
 
+/* Individual card styling */
 .grid-card {
   display: flex;
   flex-direction: column;
@@ -124,6 +129,7 @@ body {
   background-color: rgb(169, 177, 156);
 }
 
+/* Footer styling */
 .footer {
   display: flex;
   justify-content: center;
@@ -144,6 +150,7 @@ body {
   transform: rotate(360deg);
 }
 
+/* Modal styling */
 .modal {
   z-index: 1;
   position: absolute;
@@ -232,18 +239,20 @@ body {
   letter-spacing: 0.1rem;
 }
 
-.submit-button:hover{
+.submit-button:hover {
   background-color: var(--hover-background-color);
 }
 
-.overlay{
+/* Overlay Styling */
+.overlay {
   position: absolute;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.hidden{
+/* Hidden class for modal and overlay */
+.hidden {
   transition: 0.75s all;
   display: none;
 }
